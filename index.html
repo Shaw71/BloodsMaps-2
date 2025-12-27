@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>GTA V MAP - LOCAL STORAGE</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+    <style>
+        body, html, #map { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; }
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+        .modal-content { background: #1a1a1a; color: white; margin: 10% auto; padding: 20px; width: 300px; border: 2px solid #333; font-family: sans-serif; border-radius: 8px; }
+        input, select { width: 100%; margin: 10px 0; padding: 10px; background: #222; border: 1px solid #444; color: white; box-sizing: border-box; }
+        .btn-save { background: #27ae60; color: white; border: none; padding: 10px; cursor: pointer; width: 48%; font-weight: bold; }
+        .btn-cancel { background: #c0392b; color: white; border: none; padding: 10px; cursor: pointer; width: 48%; font-weight: bold; }
+        .reset-btn { position: fixed; bottom: 20px; right: 20px; z-index: 1000; background: #e74c3c; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px; opacity: 0.7; }
+        .reset-btn:hover { opacity: 1; }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <button class="reset-btn" onclick="clearData()">Tout effacer</button>
+
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <h3>Nouveau Territoire</h3>
+            <input type="text" id="zoneName" placeholder="Nom de la zone">
+            <input type="text" id="zoneOwner" placeholder="Gérant">
+            <select id="zoneColor">
+                <option value="#2ecc71">Vert</option>
+                <option value="#e74c3c">Rouge</option>
+                <option value="#3498db">Bleu</option>
+                <option value="#f1c40f">Jaune</option>
+                <option value="#9b59b6">Violet</option>
+            </select>
+            <div style="display:flex; justify-content: space-between;">
+                <button id="saveZone" class="btn-save">Enregistrer</button>
+                <button id="cancelZone" class="btn-cancel">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
